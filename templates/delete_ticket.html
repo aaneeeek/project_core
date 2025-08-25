@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <title>Delete Ticket</title>
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            Delete {{ ticket.Name }}, assigned to {{ ticket.Assignee }} by {{ ticket.Reporter }}<br>
+
+            <button type="submit">Delete</button>
+        </form>
+    </body>
+</html>

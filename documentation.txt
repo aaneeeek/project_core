@@ -1,0 +1,57 @@
+This project is a django project with the aim of simulating operations
+performed during internship in Formuloo-Rainbow-CL
+It comprises 3 sub applications, which are:
+a-basic_app,
+b-stage_formuloo_mobile,
+c-stage_formuloo_web
+
+The main project repository of this project is called "project_core" which
+contains settings.py and other general configuration python files
+
+_______________________________________________________________________________________________
+1)basic_app
+
+    This app contains the all models of the project, including the abstract user
+model "FormulooUser" that was used to extend the basic user. It also contains
+all the forms used by in the html template files. The forms are stored in
+forms.py of this app.
+
+_______________________________________________________________________________________________
+2)stage_formuloo_mobile
+
+    This app is the api section of the project. Permits users to perform
+Registration, Login, and CRUD operations on tickets. This part uses serializers stored
+serializers.py file. The views are all class based view (APIView)
+
+Creation, Delete and Update  Privileges are only granted to users whose
+role = 'SCRUM_MASTER'
+
+_______________________________________________________________________________________________
+3)stage_formuloo_web
+
+This app functions just like stage_formuloo_mobile except that operations are
+performed with the interface of a web page
+
+
+api endpoints{
+    https://<host>/formuloo_api/api_registration/  #account creation
+    https://<host>/formuloo_api/ticket_api/destroy/<ticket_id>/ #ticket deletion
+    https://<host>/formuloo_api/ticket_api/create/0/ #ticket creation
+    https://<host>/formuloo_api/ticket_api/update/<ticket_id>/ #ticket update
+    https://<host>/formuloo_api/ticket_api/list/0/ #list all tickets
+    https://<host>/formuloo_api/ticket_api/detail/<ticket_id>/ #ticket detail
+    https://<host>/api/token/ #login
+}
+
+
+web urls{
+    https://<host>/formuloo_web/home/ #aceuil
+    https://<host>/formuloo_web/registration/ #registration
+    https://<host>/formuloo_web/login/ #login
+    https://<host>/formuloo_web/logout #logout
+    https://<host>/formuloo_web/create_ticket/ #create ticket
+    https://<host>/formuloo_web/delete_ticket/<primary_key>/ #delete ticket
+    https://<host>/formuloo_web/ticket_detail/<primary_key>/ #ticket detail
+    https://<host>/formuloo_web/update_ticket/<primary_key>/ #update ticket
+    https://<host>/formuloo_web/ticket_list/ #list all tickets
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <title>Ticket Detail</title>
+    </head>
+    <body>
+        <div>
+            Name : {{ ticket.Name }}<br>
+            Description : {{ ticket.Description }} <br>
+            Reporter : {{ ticket.Reporter }} <br>
+            Created on : {{ ticket.date }} <br>
+            {% if ticket.Image %}
+            Image : <img src="{{ ticket.Image.url }}" alt="No Image">
+            {% endif %}
+
+            <br><br>
+            Assignees :
+            {% for assignee in ticket.assigned_to.all %}
+                Assigned to {{ assignee.user.username }} | state : {{ assignee.Status }}
+            {% endfor %}
+        </div>
+        <a href="{% url 'update_ticket' pk=ticket.id %}">Update</a>
+    </body>
+</html>

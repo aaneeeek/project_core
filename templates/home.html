@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <title>HOME</title>
+    </head>
+    <body>
+        This is home
+        {% if user.is_authenticated %}
+            <h2>You Are Logged in</h2><br>
+            <a href="{% url 'logout' %}"><button>Logout</button></a><br>
+            <a href="{% url 'create_ticket' %}">Create tickets</a>
+        {% else %}
+            <h2>You Are Not Logged in</h2>
+            <a href="{% url 'login' %}">LOGIN</a> OR <a href="{% url 'registration' %}">REGISTER</a>
+        {% endif %}
+        <br>
+
+    <a href="{% url 'ticket_list' %}">Browse tickets</a><br>
+    
+    </body>
+</html>

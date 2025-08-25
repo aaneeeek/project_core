@@ -1,0 +1,16 @@
+Django==5.2.4
+python-dotenv==1.1.1
+psycopg2-binary==2.9.10
+pillow==11.3.0
+cloudinary==1.44.1
+django-cloudinary-storage==0.3.0
+python-dateutil==2.9.0.post0
+channels[daphne]
+djangorestframework==3.16.0
+djangorestframework-simplejwt==5.5.1
+psycopg2-binary==2.9.10
+dotenv==0.9.9
+channels_redis==4.3.0
+django-cors-headers==4.7.0
+pytest-django==4.11.1
+pytest==8.4.1

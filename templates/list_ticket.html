@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <title>Ticket list</title>
+    </head>
+    <body>
+        {% for tick in ticket %}
+        <a href="{% url 'ticket_detail' pk=tick.id %}">{{ tick.id }}) {{ tick.Name }} --- {{ tick.date }} </a><br>
+        {% endfor %}
+
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><button>previous&lt;&lt;</button></a>
+        {% endif %}
+        <button>{{ page_obj.number }}</button>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"><button>next&gt;&gt;</button></a>
+        {% endif %}
+    </body>
+</html>

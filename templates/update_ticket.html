@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <title>Upgate Ticket</title>
+    </head>
+    <body>
+    Update ticket {{ ticket.Name }} | id={{ ticket.id }}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
