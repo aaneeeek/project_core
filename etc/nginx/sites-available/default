@@ -1,0 +1,17 @@
+server {
+    listen 80; server_name localhost;
+    location /static/ {
+        alias /mnt/c/CODEPROJECTS/test_projects/django_test/test_project/project_core/staticfiles/;
+    }
+
+    location /media/ {
+        alias /mnt/c/CODEPROJECTS/test_projects/django_test/test_project/project_core/media/;
+    }
+
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-for $proxy_add_x_forwarded_for;
+        proxy_redirect off;
+        proxy_pass http://127.0.0.1:8000;
+    }
+}
