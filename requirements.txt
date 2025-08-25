@@ -12,3 +12,4 @@ pytest-django==4.11.1
 pytest==8.4.1
 requests==2.32.4
 gunicorn
+whitenoise

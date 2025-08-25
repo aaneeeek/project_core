@@ -26,7 +26,7 @@ COPY . .
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
-# Expose port (for Gunicorn)
+# Expose port
 EXPOSE 8000
 
 # Start Gunicorn
